@@ -1,0 +1,141 @@
+body {
+  font-family: "Arabic Bold", Arial, sans-serif;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 64px;
+  max-width: 333px;
+  position: relative;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.autocomplete {
+  width: auto;
+  padding: 8px 40px 8px 8px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #6f6f76;
+  border-radius: 2px;
+  outline: none;
+}
+
+.autocomplete:hover,
+.autocomplete:focus,
+.autocomplete:active {
+  border: 1px solid #4b98be;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(75, 152, 190, 0.2);
+}
+
+.autocomplete-suggestion-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid transparent;
+  outline: none;
+  list-style: none;
+  margin: 0;
+  margin-block-start: 8px;
+  padding: 0;
+  z-index: 1000;
+  border-radius: 2px;
+  box-shadow: 4px 0 4px -2px rgba(128, 128, 128, 0.2),
+    -4px 0 4px -2px rgba(128, 128, 128, 0.2),
+    0 6px 8px -2px rgba(128, 128, 128, 0.3);
+}
+
+.autocomplete-suggestion {
+  padding: 8px;
+  cursor: pointer;
+  color: #666;
+}
+
+.autocomplete-suggestion.loading,
+.autocomplete-suggestion.no-match {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+
+.autocomplete-suggestion:not(.loading):not(.no-match):hover,
+.autocomplete-suggestion.selected {
+  background-color: #f0f0f0;
+  color: #4b98be;
+  font-weight: 600;
+}
+
+.dismissible {
+  position: absolute;
+  right: 30px;
+  top: 70%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #999;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.dismissible:hover {
+  color: #333;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 70%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #999;
+  font-size: 14px;
+}
+
+.form .search-icon,
+.form .dismissible {
+  top: 50%;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
