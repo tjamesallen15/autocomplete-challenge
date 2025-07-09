@@ -1,10 +1,17 @@
 import { IoClose, IoSearch } from "react-icons/io5";
 import { useAutocomplete } from "../hooks/useAutocomplete";
 
+/** Props for the Autocomplete component */
 interface AutoProps {
+  /** Array of suggestion strings to display */
   source: string[];
 }
 
+/**
+ * Standalone autocomplete component with keyboard navigation and search functionality
+ * @param props - Component props
+ * @returns JSX element containing the autocomplete input and suggestions
+ */
 const Autocomplete = ({ source }: AutoProps) => {
   const suggestions = source;
   const {

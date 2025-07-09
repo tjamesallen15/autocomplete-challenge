@@ -2,18 +2,29 @@ import { useForm, Controller } from "react-hook-form";
 import { useAutocomplete } from "../hooks/useAutocomplete";
 import { IoClose, IoSearch } from "react-icons/io5";
 
+/** Form data structure */
 interface FormData {
   language: string;
   email: string;
 }
 
+/** Props for the AutocompleteInput component */
 interface AutoFormProps {
+  /** Array of suggestion strings */
   source: string[];
+  /** Current input value */
   value: string;
+  /** Callback when value changes */
   onChange: (value: string) => void;
+  /** Callback when input loses focus */
   onBlur: () => void;
 }
 
+/**
+ * Autocomplete input component for form integration
+ * @param props - Component props
+ * @returns JSX element for form-integrated autocomplete
+ */
 const AutocompleteInput = ({
   source,
   value,
@@ -76,6 +87,10 @@ const AutocompleteInput = ({
   );
 };
 
+/**
+ * Form component demonstrating autocomplete integration with React Hook Form
+ * @returns JSX element containing the complete form with validation
+ */
 const AutocompleteForm = () => {
   const source = ["Swift", "C++", "JavaScript", "Java", "Python"];
   const {

@@ -1,5 +1,12 @@
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 
+/**
+ * Custom hook for autocomplete functionality with keyboard navigation and form integration
+ * @param suggestions - Array of suggestion strings to filter and display
+ * @param externalValue - Optional external value for controlled component behavior
+ * @param onExternalChange - Optional callback for external value changes
+ * @returns Object containing input state, handlers, and filtered suggestions
+ */
 export const useAutocomplete = (suggestions: string[], externalValue?: string, onExternalChange?: (value: string) => void) => {
   const [input, setInput] = useState(externalValue || "");
   const [autoStates, setAutoStates] = useState({
