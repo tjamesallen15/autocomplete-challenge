@@ -3,15 +3,16 @@ import userEvent from "@testing-library/user-event";
 import Autocomplete from "./Autocomplete";
 
 describe("Autocomplete", () => {
+  const source = ["Swift", "C++", "JavaScript", "Java", "Python"];
   test("renders input field", () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     expect(
       screen.getByPlaceholderText("Type to search...")
     ).toBeInTheDocument();
   });
 
   test("shows suggestions when typing", async () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     const input = screen.getByPlaceholderText("Type to search...");
 
     await userEvent.type(input, "Java");
@@ -23,7 +24,7 @@ describe("Autocomplete", () => {
   });
 
   test("filters suggestions correctly", async () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     const input = screen.getByPlaceholderText("Type to search...");
 
     await userEvent.type(input, "Py");
@@ -35,7 +36,7 @@ describe("Autocomplete", () => {
   });
 
   test("selects suggestion on click", async () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     const input = screen.getByPlaceholderText("Type to search...");
 
     await userEvent.type(input, "Java");
@@ -47,7 +48,7 @@ describe("Autocomplete", () => {
   });
 
   test("navigates with arrow keys", async () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     const input = screen.getByPlaceholderText("Type to search...");
 
     await userEvent.type(input, "J");
@@ -60,7 +61,7 @@ describe("Autocomplete", () => {
   });
 
   test("shows no match message", async () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     const input = screen.getByPlaceholderText("Type to search...");
 
     await userEvent.type(input, "xyz");
@@ -71,7 +72,7 @@ describe("Autocomplete", () => {
   });
 
   test("clears input when clear button clicked", async () => {
-    render(<Autocomplete />);
+    render(<Autocomplete source={source} />);
     const input = screen.getByPlaceholderText("Type to search...");
 
     await userEvent.type(input, "test");

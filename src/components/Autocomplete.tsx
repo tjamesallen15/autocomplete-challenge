@@ -1,8 +1,12 @@
 import { IoClose, IoSearch } from "react-icons/io5";
 import { useAutocomplete } from "../hooks/useAutocomplete";
 
-const Autocomplete = () => {
-  const suggestions = ["Swift", "C++", "JavaScript", "Java", "Python"];
+interface AutoProps {
+  source: string[];
+}
+
+const Autocomplete = ({ source }: AutoProps) => {
+  const suggestions = source;
   const {
     input,
     autoStates,

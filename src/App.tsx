@@ -3,9 +3,10 @@ import Autocomplete from "./components/Autocomplete";
 import AutocompleteForm from "./components/AutocompleteForm";
 
 function App() {
+  const source = ["Swift", "C++", "JavaScript", "Java", "Python"];
   return (
     <div className="container">
-      <Autocomplete />
+      <Autocomplete source={source} />
       <AutocompleteForm />
     </div>
   );

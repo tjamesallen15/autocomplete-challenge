@@ -7,8 +7,20 @@ interface FormData {
   email: string;
 }
 
-const AutocompleteInput = ({ value, onChange, onBlur }: any) => {
-  const suggestions = ["Swift", "C++", "JavaScript", "Java", "Python"];
+interface AutoFormProps {
+  source: string[];
+  value: string;
+  onChange: (value: string) => void;
+  onBlur: () => void;
+}
+
+const AutocompleteInput = ({
+  source,
+  value,
+  onChange,
+  onBlur,
+}: AutoFormProps) => {
+  const suggestions = source;
   const {
     input,
     autoStates,
@@ -65,6 +77,7 @@ const AutocompleteInput = ({ value, onChange, onBlur }: any) => {
 };
 
 const AutocompleteForm = () => {
+  const source = ["Swift", "C++", "JavaScript", "Java", "Python"];
   const {
     control,
     handleSubmit,
@@ -83,7 +96,9 @@ const AutocompleteForm = () => {
           name="language"
           control={control}
           rules={{ required: "Please select a language" }}
-          render={({ field }) => <AutocompleteInput {...field} />}
+          render={({ field }) => (
+            <AutocompleteInput source={source} {...field} />
+          )}
         />
         {errors.language && <span>{errors.language.message}</span>}
       </div>

@@ -76,7 +76,9 @@ export const useAutocomplete = (suggestions: string[], externalValue?: string, o
 
   const onHandleSuggestionClick = (suggestion: string) => {
     setInput(suggestion);
-    onExternalChange?.(suggestion);
+    if (onExternalChange) {
+      onExternalChange(suggestion);
+    }
     setAutoStates((prev) => ({ ...prev, showSuggestions: false }));
   };
 
